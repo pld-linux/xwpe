@@ -7,7 +7,7 @@ Group:		Development/Tools
 #Source:	ftp://ftp.rrzn.uni-hannover.de/pub/systems/unix/xwpe/%{name}-1.4.2.tar.Z
 Source:		http://www.identicalsoftware.com/xwpe/%{name}-%{version}.tar.gz
 URL:		http://www.identicalsoftware.com/xwpe
-BuildRoot:	/tmp/%{name}-%{version}-root
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 XWPE is actually a package of four programs: we, wpe, xwe, and xwpe. They
