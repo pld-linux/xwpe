@@ -77,7 +77,7 @@ X Window altýnda çalýþan tümleþik geliþtirme ortamý yazýlýmlarý.
 
 %build
 autoconf
-CFLAGS="-I%{_includedir}/ncurses %{!?debug:$RPM_OPT_FLAGS}%{?debug:-O -g}" 
+CFLAGS="-I%{_includedir}/ncurses %{?debug:-O -g}%{!?debug:$RPM_OPT_FLAGS}" 
 %configure
 %{__make} 
 
