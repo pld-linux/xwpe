@@ -3,7 +3,7 @@ Summary(de):	X-Windows-Programmierumgebung
 Summary(fr):	Environnement de programmation X Window
 Summary(tr):	X Windows program geliþtirme ortamý
 Name:		xwpe
-Version:	1.5.24a
+Version:	1.5.25a
 Release:	1
 License:	GPL
 Group:		Development/Tools
@@ -12,8 +12,7 @@ Group(fr):	Development/Outils
 Group(pl):	Programowanie/Narzêdzia
 Source0:	http://www.identicalsoftware.com/xwpe/%{name}-%{version}.tar.gz
 Source1:	%{name}.desktop
-Patch0:		http://www.identicalsoftware.com/xwpe/%{name}-copyfix.patch
-Patch1:		%{name}-DESTDIR.patch
+Patch0:		%{name}-DESTDIR.patch
 URL:		http://www.identicalsoftware.com/xwpe/
 Buildrequires:	gpm-devel
 Buildrequires:	ncurses-devel >= 5.1
@@ -74,8 +73,7 @@ X Window altýnda çalýþan tümleþik geliþtirme ortamý yazýlýmlarý.
 
 %prep
 %setup -q
-%patch0 -p0
-%patch1 -p1
+%patch0 -p1
 
 %build
 autoconf
