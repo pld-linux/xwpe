@@ -19,10 +19,10 @@ Source2:	%{name}.png
 Patch0:		%{name}-DESTDIR.patch
 URL:		http://www.identicalsoftware.com/xwpe/
 BuildRequires:	autoconf
-Buildrequires:	gpm-devel
-Buildrequires:	ncurses-devel >= 5.1
-Buildrequires:	XFree86-devel
-Buildrequires:	zlib-devel
+BuildRequires:	gpm-devel
+BuildRequires:	ncurses-devel >= 5.1
+BuildRequires:	XFree86-devel
+BuildRequires:	zlib-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
