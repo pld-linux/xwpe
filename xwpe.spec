@@ -9,7 +9,7 @@ Summary(tr):	X Window program geliЧtirme ortamЩ
 Summary(uk):	Середовище розробки п╕д X Window
 Name:		xwpe
 Version:	1.5.29a
-Release:	2
+Release:	3
 License:	GPL
 Group:		Development/Tools
 Source0:	http://www.identicalsoftware.com/xwpe/%{name}-%{version}.tar.gz
