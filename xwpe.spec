@@ -1,7 +1,8 @@
-Summary:	X Windows Programming Environment
-Summary(de):	X-Windows-Programmierumgebung
+Summary:	X Window Programming Environment
+Summary(de):	X-Window-Programmierumgebung
 Summary(fr):	Environnement de programmation X Window
-Summary(tr):	X Windows program geliþtirme ortamý
+Summary(pl):	¦rodowisko programistyczne pod X Window
+Summary(tr):	X Window program geliþtirme ortamý
 Name:		xwpe
 Version:	1.5.26a
 Release:	2
@@ -15,6 +16,7 @@ Source1:	%{name}.desktop
 Patch0:		%{name}-DESTDIR.patch
 Patch1:		%{name}-i18n.patch
 URL:		http://www.identicalsoftware.com/xwpe/
+BuildRequires:	autoconf
 Buildrequires:	gpm-devel
 Buildrequires:	ncurses-devel >= 5.1
 Buildrequires:	XFree86-devel
@@ -49,13 +51,22 @@ programmation de Micro$oft Windows et que vous recherchiez un
 en mode texte des programmes X, ce qui vous permet d'utiliser xwpe
 quel que soit votre environnement de développement.
 
+%description -l pl
+XWPE w³a¶ciwie sk³ada siê z czterech programów: we, wpe, xwe i xwpe.
+S± to ró¿ne wersje tego samego podstawowego edytora programisty i
+¶rodowiska. Je¿eli u¿ywa³e¶ jakiego¶ zintegrowanego ¶rodowiska
+programistycznego pod MS Windows i szukasz odpowiednika pod X Window,
+to jest to! Za³±czone s± tak¿e tekstowe odpowiedniki programów pod X,
+pozwalaj±ce u¿ywaæ xwpe w ka¿dym ¶rodowisku.
+
 %description -l tr
-XWPE, Micro$oft Windows'da bulunan benzerleri gibi, bir metin
+XWPE, Microsoft Windows'da bulunan benzerleri gibi, bir metin
 düzenleyici ve tümleþik bir geliþtirme ortamý sunan bir yazýlýmdýr. Bu
 pakettekiler metin ekranda çalýþan sürümleri bulundurmaktadýr.
 
 %package X11
-Summary:	X Windows Programming Environment - X11 programs
+Summary:	X Window Programming Environment - X11 programs
+Summary(pl):	XWPE - programy pod X11
 Group:		X11/Applications
 Group(de):	X11/Applikationen
 Group(pl):	X11/Aplikacje
@@ -63,13 +74,17 @@ Prereq:		xwpe
 
 %description X11
 Includes the 'xwpe' and 'xwe' programs from the xwpe package that are
-specific to X Windows.
+specific to X Window System.
 
-%description -l de X11
+%description X11 -l de
 Beinhaltet die 'xwpe'- und 'xwe'-Programme aus dem xwpe-Paket, die
-X-Windows-spezifisch sind.
+X-Window-spezifisch sind.
 
-%description -l tr X11
+%description X11 -l pl
+Pakiet zawiera programy xwpe i xwe ze ¶rodowiska xwpe - specyficzne
+dla X Window System.
+
+%description X11 -l tr
 X Window altýnda çalýþan tümleþik geliþtirme ortamý yazýlýmlarý.
 
 %prep
