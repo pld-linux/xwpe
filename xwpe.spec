@@ -3,7 +3,7 @@ Summary(de):	X-Windows-Programmierumgebung
 Summary(fr):	Environnement de programmation X Window
 Summary(tr):	X Windows program geliþtirme ortamý
 Name:		xwpe
-Version:	1.5.25a
+Version:	1.5.26a
 Release:	1
 License:	GPL
 Group:		Development/Tools
