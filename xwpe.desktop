@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=xwpe
+Comment=Ambiente de Desenvolvimento C
+Exec=xwpe
+Terminal=0
+Type=Application
