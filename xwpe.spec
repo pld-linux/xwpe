@@ -1,12 +1,13 @@
 Summary:	X Windows Programming Environment
 Name:		xwpe
-Version:	1.5.21a
+Version:	1.5.24a
 Release:	1
 License:	GPL
 Group:		Development/Tools
+URL:		http://www.identicalsoftware.com/xwpe
 #Source:	ftp://ftp.rrzn.uni-hannover.de/pub/systems/unix/xwpe/%{name}-1.4.2.tar.Z
 Source:		http://www.identicalsoftware.com/xwpe/%{name}-%{version}.tar.gz
-URL:		http://www.identicalsoftware.com/xwpe
+Patch:		http://www.identicalsoftware.com/xwpe/xwpe-copyfix.patch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -31,6 +32,7 @@ specific to X Windows.
 
 %prep
 %setup -q
+%patch0 -p0
 
 %build
 patch -p1 <xwpe-%{version}-conf.patch
