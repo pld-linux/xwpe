@@ -1,0 +1,76 @@
+diff -nru xwpe-1.5.24a/Makefile.in xwpe-1.5.24a.new/Makefile.in
+--- xwpe-1.5.24a/Makefile.in	Mon Nov  6 11:40:38 2000
++++ xwpe-1.5.24a.new/Makefile.in	Mon Nov  6 11:42:24 2000
+@@ -9,10 +9,10 @@
+ #Destination Directory
+ prefix=@prefix@
+ exec_prefix=@exec_prefix@
+-DESTDIR=@bindir@
+-LIBDIR=@libdir@
+-XWPELIBDIR=	$(LIBDIR)/xwpe
+-MANDIR=@mandir@
++bindir=@bindir@
++libdir=@libdir@
++XWPELIBDIR=@libdir@/xwpe
++mandir=@mandir@
+ 
+ LIBS=@LIBS@
+ XLIBS=@X_LIBS@ @X_PRE_LIBS@ @X_EXTRA_LIBS@
+@@ -114,42 +114,23 @@
+ 
+ # Bug Note: Currently xwpe and xwe are installed even if X windows versions
+ # are not compiled.  (They will function as wpe and we respectively.)
+-install_fst:	xwpe
+-	if test ! -d $(DESTDIR); then mkdir -p $(DESTDIR); fi
+-	if test ! -d $(XWPELIBDIR); then mkdir -p $(XWPELIBDIR); fi
+-	rm -f $(DESTDIR)/wpe $(DESTDIR)/xwpe $(DESTDIR)/we $(DESTDIR)/xwe
+-	$(INSTALL) xwpe $(DESTDIR)/we
+-	chmod ugo+x $(DESTDIR)/we
+-	(cd $(DESTDIR) && $(LN_S) we xwe)
+-	(cd $(DESTDIR) && $(LN_S) we xwpe)
+-	(cd $(DESTDIR) && $(LN_S) we wpe)
+-	rm -f $(XWPELIBDIR)/help.xwpe
+-	if test ! -f $(XWPELIBDIR)/syntax_def; then  \
+-	  $(INSTALL) syntax_def $(XWPELIBDIR)/syntax_def; \
+-	  chmod ugo=r $(XWPELIBDIR)/syntax_def; fi
+-	if test ! -d $(MANDIR)/man1; then mkdir -p $(MANDIR)/man1; fi
+-	rm -f $(MANDIR)/man1/xwpe.1 $(MANDIR)/man1/xwe.1 
+-	rm -f $(MANDIR)/man1/wpe.1 $(MANDIR)/man1/we.1 
+-	$(INSTALL) xwe.1 wpe.1 we.1 $(MANDIR)/man1
+-	chmod ugo=r $(MANDIR)/man1/xwe.1 
+-	chmod ugo=r $(MANDIR)/man1/wpe.1 $(MANDIR)/man1/we.1 
+-	if test -f libxwpe-x11.so; then \
+-	  $(INSTALL) libxwpe-x11.so $(XWPELIBDIR)/libxwpe-x11.so; fi
+-	if test -f libxwpe-term.so; then \
+-	  $(INSTALL) libxwpe-term.so $(XWPELIBDIR)/libxwpe-term.so; fi
+-
+-install:	install_fst
+-	$(INSTALL) help.xwpe_eng $(XWPELIBDIR)/help.xwpe
+-	chmod ugo=r $(XWPELIBDIR)/help.xwpe
+-	$(INSTALL) help.key_eng $(XWPELIBDIR)/help.key
+-	chmod ugo=r $(XWPELIBDIR)/help.key
+-	$(INSTALL) xwpe.1_eng $(MANDIR)/man1/xwpe.1
+-	chmod ugo=r $(MANDIR)/man1/xwpe.1
++install:	xwpe libxwpe-x11.so libxwpe-term.so
++	install -d $(DESTDIR)$(bindir) $(DESTDIR)$(mandir)/man1 \
++		$(DESTDIR)$(XWPELIBDIR) $(DESTDIR)$(mandir)/de/man1
++	install -m755 xwpe $(DESTDIR)$(bindir)/we
++	$(LN_S) we $(DESTDIR)$(bindir)/xwe
++	$(LN_S) we $(DESTDIR)$(bindir)/xwpe
++	$(LN_S) we $(DESTDIR)$(bindir)/wpe
++	install -m644 syntax_def $(DESTDIR)$(XWPELIBDIR)/syntax_def; \
++	install -m644 xwe.1 wpe.1 we.1 $(DESTDIR)$(mandir)/man1
++	install -m755 libxwpe-x11.so $(DESTDIR)$(XWPELIBDIR)/libxwpe-x11.so
++	install -m755 libxwpe-term.so $(DESTDIR)$(XWPELIBDIR)/libxwpe-term.so
++	install -m644 help.xwpe_eng $(DESTDIR)$(XWPELIBDIR)/help.xwpe
++	install -m644 help.key_eng $(DESTDIR)$(XWPELIBDIR)/help.key
++	install -m644 xwpe.1_eng $(DESTDIR)$(mandir)/man1/xwpe.1
++	install old/xwpe.1_gr $(DESTDIR)$(mandir)/de/man1/xwpe.1
+ 
+ # German install uses old documention as no updated version is available
+ install_german:	install_fst
+ 	$(INSTALL) old/we.help_gr $(XWPELIBDIR)/help.xwpe
+ 	chmod ugo=r $(XWPELIBDIR)/help.xwpe
+-	$(INSTALL) old/xwpe.1_gr $(MANDIR)/man1/xwpe.1
+-	chmod ugo=r $(MANDIR)/man1/xwpe.1
+-
