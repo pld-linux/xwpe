@@ -9,11 +9,12 @@ Summary(tr):	X Window program geliЧtirme ortamЩ
 Summary(uk):	Середовище розробки п╕д X Windows
 Name:		xwpe
 Version:	1.5.29a
-Release:	1
+Release:	2
 License:	GPL
 Group:		Development/Tools
 Source0:	http://www.identicalsoftware.com/xwpe/%{name}-%{version}.tar.gz
 Source1:	%{name}.desktop
+Source2:	%{name}.png
 Patch0:		%{name}-DESTDIR.patch
 URL:		http://www.identicalsoftware.com/xwpe/
 BuildRequires:	autoconf
@@ -145,12 +146,13 @@ CFLAGS="-I/usr/include/ncurses %{rpmcflags}"
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{_applnkdir}/Development
+install -d $RPM_BUILD_ROOT{%{_applnkdir}/Development,%{_pixmapsdir}}
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
 install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/Development
+install %{SOURCE2} $RPM_BUILD_ROOT%{_pixmapsdir}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -177,3 +179,4 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/xwpe
 %attr(755,root,root) %{_libdir}/xwpe/libxwpe-x11.so
 %{_applnkdir}/Development/*
+%{_pixmapsdir}/*.png
