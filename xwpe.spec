@@ -4,9 +4,9 @@ Summary(es):	Ambiente de programaciСn X Window
 Summary(fr):	Environnement de programmation X Window
 Summary(pl):	╕rodowisko programistyczne pod X Window
 Summary(pt_BR):	Ambiente de programaГЦo X Window
-Summary(ru):	Среда разработки под X Windows
+Summary(ru):	Среда разработки под X Window
 Summary(tr):	X Window program geliЧtirme ortamЩ
-Summary(uk):	Середовище розробки п╕д X Windows
+Summary(uk):	Середовище розробки п╕д X Window
 Name:		xwpe
 Version:	1.5.29a
 Release:	2
@@ -29,7 +29,7 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 XWPE is actually a package of four programs: we, wpe, xwe, and xwpe.
 They are different versions of the same basic programmers editor and
 development environment. If you have used some of the Microsoft
-Windows programming IDE's and longed for an X Windows equivalent, this
+Windows programming IDE's and longed for an X Window equivalent, this
 is what you have been looking for! Also included are the text-mode
 equivalents of the X programs, enabling you to use xwpe no matter what
 your development environment may be.
@@ -39,7 +39,7 @@ XWPE sind eigentlich 4 Programme: we, wpe, xwe und xwpe. Dies sind
 verschiedene Versionen desselben elementaren Programmeditors und
 derselben Entwicklungsumgebung. Wenn Sie bereits mit manchen der
 Micro$oft-Windows-Programmier-IDEs gearbeitet und sich nach einem X-
-Windows-дquivalent gesehnt haben, dann ist das hier die LЖsung fЭr
+Window-дquivalent gesehnt haben, dann ist das hier die LЖsung fЭr
 Sie! Ebenfalls eingeschlossen sind die Textmodus-дquivalente der
 X-Programme, so daъ Sie xwpe benutzen kЖnnen, unabhДngig davon, in
 welcher Entwicklungsumgebung sie arbeiten.
@@ -87,7 +87,7 @@ para X estЦo no pacote 'xwpe-X11'.
 XWPE представляет собой пакет из четырех программ: we, wpe, xwe и
 xwpe. Это разные версии одного и того же редактора и среды разработки.
 Если вы привыкли к какой-либо среде разработки под Micro$oft Windows и
-ищете что-то похожее для X Windows, этот пакет - самое оно. Также
+ищете что-то похожее для X Window, этот пакет - самое оно. Также
 включены текстовые эквиваленты программ для X, позволяющие
 использовать xwpe в любом окружении.
 
@@ -100,7 +100,7 @@ pakettekiler metin ekranda ГalЩЧan sЭrЭmleri bulundurmaktadЩr.
 XWPE - це пакет з чотирьох програм: we, wpe, xwe та xwpe. Це р╕зн╕
 верс╕╖ одного й того ж редактору та середовища розробки. Якщо ви
 звикли до якогось середовища розробки п╕д Micro$oft Windows ╕ шука╓те
-щось схоже п╕д X Windows, то цей пакет - саме воно. Також включен╕
+щось схоже п╕д X Window, то цей пакет - саме воно. Також включен╕
 текстов╕ екв╕валенти програм для X, що дозволяють використовувати xwpe
 у будь-якому середовищ╕.
 
