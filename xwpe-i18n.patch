@@ -1,0 +1,64 @@
+--- xwpe-1.5.26a/we_xterm.c.old	Fri Feb  9 13:41:56 2001
++++ xwpe-1.5.26a/we_xterm.c	Fri Feb  9 13:44:09 2001
+@@ -175,6 +175,34 @@
+ XSegment seg[8][WPE_MAXSEG];
+ int scol[8] = { 0, 0, 15, 15, 15, 15, 0, 0 };
+ 
++int e_XLookupString(XKeyEvent *event, char *buffer_return, int buffer_size,
++		    KeySym *keysym_return, XComposeStatus *status)
++{
++    static int first = 1;
++    static XIC xic;
++    static XIM xim;
++
++    if (first) {
++	if (!XSetLocaleModifiers(""))
++	    XSetLocaleModifiers("@im=none");
++	xim = XOpenIM(event->display, NULL, NULL, NULL);
++	xic = XCreateIC(xim,
++			XNInputStyle, XIMPreeditNothing | XIMStatusNothing,
++			XNClientWindow, WpeXInfo.window, NULL);
++	first = 0;
++    }
++    if (xic) {
++	if (XFilterEvent((XEvent*)event, WpeXInfo.window))
++	    return (0);
++
++	return (XmbLookupString(xic, event, buffer_return, buffer_size,
++				keysym_return, NULL));
++    }
++
++    return (XLookupString(event, buffer_return, buffer_size,
++			  keysym_return, status));
++}
++
+ void e_flush_xrect()
+ {
+  int i;
+@@ -466,7 +494,7 @@
+     }
+     break;
+    case KeyPress:
+-    charcount = XLookupString(&report.xkey, buffer, BUFSIZE, &keysym, &compose);
++    charcount = e_XLookupString(&report.xkey, buffer, BUFSIZE, &keysym, &compose);
+     if (charcount == 1 && *buffer == CtrlC) return(CtrlC);
+     break;
+    case ButtonPress:
+@@ -559,7 +587,7 @@
+     }
+     break;
+    case KeyPress:
+-    charcount = XLookupString(&report.xkey, buffer, BUFSIZE, &keysym,
++    charcount = e_XLookupString(&report.xkey, buffer, BUFSIZE, &keysym,
+       &compose);
+     key_b = report.xkey.state;
+     if (charcount == 1)
+@@ -743,7 +771,7 @@
+  }
+  else
+  {
+-  charcount = XLookupString(&report.xkey, buffer, BUFSIZE,
++  charcount = e_XLookupString(&report.xkey, buffer, BUFSIZE,
+ 						&keysym, &compose);
+   if(charcount == 1) return(*buffer);
+   else return(0);
