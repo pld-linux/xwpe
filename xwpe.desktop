@@ -9,6 +9,6 @@ Icon=xwpe.png
 Exec=xwpe
 Terminal=false
 Type=Application
-Categories=Development
+Categories=Development;
 Encoding=UTF-8
 # vi: encoding=utf-8
