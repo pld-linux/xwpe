@@ -51,7 +51,7 @@ diff -nru xwpe-1.5.24a/Makefile.in xwpe-1.5.24a.new/Makefile.in
 -	chmod ugo=r $(XWPELIBDIR)/help.key
 -	$(INSTALL) xwpe.1_eng $(MANDIR)/man1/xwpe.1
 -	chmod ugo=r $(MANDIR)/man1/xwpe.1
-+install:	xwpe libxwpe-x11.so libxwpe-term.so
++install:	xwpe # libxwpe-x11.so libxwpe-term.so
 +	install -d $(DESTDIR)$(bindir) $(DESTDIR)$(mandir)/man1 \
 +		$(DESTDIR)$(XWPELIBDIR) $(DESTDIR)$(mandir)/de/man1
 +	install -m755 xwpe $(DESTDIR)$(bindir)/we
@@ -60,8 +60,8 @@ diff -nru xwpe-1.5.24a/Makefile.in xwpe-1.5.24a.new/Makefile.in
 +	$(LN_S) we $(DESTDIR)$(bindir)/wpe
 +	install -m644 syntax_def $(DESTDIR)$(XWPELIBDIR)/syntax_def; \
 +	install -m644 xwe.1 wpe.1 we.1 $(DESTDIR)$(mandir)/man1
-+	install -m755 libxwpe-x11.so $(DESTDIR)$(XWPELIBDIR)/libxwpe-x11.so
-+	install -m755 libxwpe-term.so $(DESTDIR)$(XWPELIBDIR)/libxwpe-term.so
++	if [ -f libxwpe-x11.so ]; then install -m755 libxwpe-x11.so $(DESTDIR)$(XWPELIBDIR)/libxwpe-x11.so ; fi
++	if [ -f libxwpe-term.so ]; then install -m755 libxwpe-term.so $(DESTDIR)$(XWPELIBDIR)/libxwpe-term.so ; fi
 +	install -m644 help.xwpe_eng $(DESTDIR)$(XWPELIBDIR)/help.xwpe
 +	install -m644 help.key_eng $(DESTDIR)$(XWPELIBDIR)/help.key
 +	install -m644 xwpe.1_eng $(DESTDIR)$(mandir)/man1/xwpe.1
