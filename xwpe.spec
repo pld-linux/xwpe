@@ -13,6 +13,7 @@ Release:	2
 License:	GPL
 Group:		Development/Tools
 Source0:	http://www.identicalsoftware.com/xwpe/%{name}-%{version}.tar.gz
+# Source0-md5: fa529db0a3f1cc5ac35ff0cc7bb3f588
 Source1:	%{name}.desktop
 Source2:	%{name}.png
 Patch0:		%{name}-DESTDIR.patch
