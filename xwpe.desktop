@@ -1,7 +1,8 @@
 [Desktop Entry]
 Name=xwpe
 Comment=X Windows Programming Environment
-Comment[es]=Ambiente de Desenvolvimento C
+Comment[es]=Ambiente de programación X Window
+Comment[pt_BR]=Ambiente de programação X Window
 Exec=xwpe
 Terminal=0
 Type=Application
