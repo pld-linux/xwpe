@@ -36,13 +36,13 @@ specific to X Windows.
 patch -p1 <xwpe-%{version}-conf.patch
 autoconf
 ./configure --prefix=/usr
-make 
+%{__make} 
 
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT/usr
 
-make prefix=$RPM_BUILD_ROOT/usr install
+%{__make} prefix=$RPM_BUILD_ROOT/usr install
 ( cd $RPM_BUILD_ROOT/usr/bin
   strip we
 )
