@@ -8,9 +8,6 @@ Version:	1.5.26a
 Release:	2
 License:	GPL
 Group:		Development/Tools
-Group(de):	Entwicklung/Werkzeuge
-Group(fr):	Development/Outils
-Group(pl):	Programowanie/Narzêdzia
 Source0:	http://www.identicalsoftware.com/xwpe/%{name}-%{version}.tar.gz
 Source1:	%{name}.desktop
 Patch0:		%{name}-DESTDIR.patch
@@ -68,8 +65,6 @@ pakettekiler metin ekranda çalýþan sürümleri bulundurmaktadýr.
 Summary:	X Window Programming Environment - X11 programs
 Summary(pl):	XWPE - programy pod X11
 Group:		X11/Applications
-Group(de):	X11/Applikationen
-Group(pl):	X11/Aplikacje
 Prereq:		xwpe
 
 %description X11
