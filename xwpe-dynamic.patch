@@ -1,0 +1,46 @@
+--- xwpe-1.5.29a/Makefile.in.orig	2003-12-30 12:00:13.000000000 +0000
++++ xwpe-1.5.29a/Makefile.in	2003-12-30 12:06:57.000000000 +0000
+@@ -16,7 +16,7 @@
+ 
+ LIBS=@LIBS@
+ XLIBS=@X_LIBS@ @X_PRE_LIBS@ @X_EXTRA_LIBS@
+-DEFS=@DEFS@ -DLIBRARY_DIR=\"$(XWPELIBDIR)\" -DSELECTION
++DEFS=@DEFS@ -DLIBRARY_DIR=\"$(XWPELIBDIR)\" -DSELECTION -DXWPE_DLL
+ INSTALL=	cp
+ LN_S=	@LN_S@
+ 
+@@ -89,10 +89,10 @@
+ 		model.h progr.h unixkeys.h unixmakr.h \
+ 		Xwpe.h WeString.h WeXterm.h WeProg.h WeExpArr.h
+ 
+-xwpe:	$(OFILES) $(X_OFILES) $(T_OFILES)
+-	$(CC) $(CFLAGS) $(DEFS) $(OFILES) $(X_OFILES) $(T_OFILES) \
+-	  $(LIBS) $(XLIBS) -o xwpe
+-#	$(CC) -Wl,-E $(CFLAGS) $(DEFS) $(OFILES) $(LIBS) -o xwpe
++xwpe:	$(OFILES) # $(X_OFILES) $(T_OFILES)
++#	$(CC) $(CFLAGS) $(DEFS) $(OFILES) $(X_OFILES) $(T_OFILES) \
++#	  $(LIBS) $(XLIBS) -o xwpe
++	$(CC) -Wl,-E $(CFLAGS) $(DEFS) $(OFILES) $(LIBS) -o xwpe -ldl
+ 
+ libxwpe-x11.so:	$(X_OFILES)
+ 	$(CC) -shared $(X_OFILES) $(XLIBS) -o libxwpe-x11.so
+@@ -100,8 +100,8 @@
+ libxwpe-term.so:	$(T_OFILES)
+ 	$(CC) -shared $(T_OFILES) -o libxwpe-term.so
+ 
+-#$(X_OFILES) $(T_OFILES):	$(HFILES)
+-#	$(CC) -fPIC $(CFLAGS) $(DEFS) -c $(subst .o,.c,$@)
++$(X_OFILES) $(T_OFILES):	$(HFILES)
++	$(CC) -fPIC $(CFLAGS) $(DEFS) -c $(subst .o,.c,$@)
+ 
+ .c.o:	$(HFILES)
+ 	$(CC) $(CFLAGS) $(DEFS) -c $<
+@@ -114,7 +114,7 @@
+ 
+ # Bug Note: Currently xwpe and xwe are installed even if X windows versions
+ # are not compiled.  (They will function as wpe and we respectively.)
+-install:	xwpe # libxwpe-x11.so libxwpe-term.so
++install:	xwpe libxwpe-x11.so libxwpe-term.so
+ 	install -d $(DESTDIR)$(bindir) $(DESTDIR)$(mandir)/man1 \
+ 		$(DESTDIR)$(XWPELIBDIR) $(DESTDIR)$(mandir)/de/man1
+ 	install -m755 xwpe $(DESTDIR)$(bindir)/we
