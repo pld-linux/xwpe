@@ -10,4 +10,5 @@ Exec=xwpe
 Terminal=0
 Type=Application
 Categories=Development
+Encoding=UTF-8
 # vi: encoding=utf-8
