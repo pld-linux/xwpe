@@ -89,9 +89,9 @@ X Window altýnda çalýþan tümleþik geliþtirme ortamý yazýlýmlarý.
 
 %build
 autoconf
-CFLAGS="-I%{_includedir}/ncurses %{rpmcflags}" 
+CFLAGS="-I/usr/include/ncurses %{rpmcflags}"
 %configure
-%{__make} 
+%{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
