@@ -9,7 +9,7 @@ Summary(tr):	X Window program geliþtirme ortamý
 Summary(uk):	óÅÒÅÄÏ×ÉÝÅ ÒÏÚÒÏÂËÉ Ð¦Ä X Window
 Name:		xwpe
 Version:	1.5.29a
-Release:	3
+Release:	4
 License:	GPL
 Group:		Development/Tools
 Source0:	http://www.identicalsoftware.com/xwpe/%{name}-%{version}.tar.gz
@@ -17,11 +17,12 @@ Source0:	http://www.identicalsoftware.com/xwpe/%{name}-%{version}.tar.gz
 Source1:	%{name}.desktop
 Source2:	%{name}.png
 Patch0:		%{name}-DESTDIR.patch
+Patch1:		%{name}-dynamic.patch
 URL:		http://www.identicalsoftware.com/xwpe/
+BuildRequires:	XFree86-devel
 BuildRequires:	autoconf
 BuildRequires:	gpm-devel
 BuildRequires:	ncurses-devel >= 5.1
-BuildRequires:	XFree86-devel
 BuildRequires:	zlib-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -110,7 +111,7 @@ Summary(es):	Ambiente de Programación X Window - Programas X11
 Summary(pl):	XWPE - programy pod X11
 Summary(pt_BR):	Ambiente de Programação X Window - Programas X11
 Group:		X11/Applications
-Prereq:		xwpe
+Requires:	%{name} = %{version}-%{release}
 
 %description X11
 Includes the 'xwpe' and 'xwe' programs from the xwpe package that are
@@ -138,12 +139,13 @@ X Window altýnda çalýþan tümleþik geliþtirme ortamý yazýlýmlarý.
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p1
 
 %build
 %{__autoconf}
 CFLAGS="-I/usr/include/ncurses %{rpmcflags}"
 %configure
-%{__make}
+%{__make} xwpe libxwpe-x11.so libxwpe-term.so
 
 %install
 rm -rf $RPM_BUILD_ROOT
