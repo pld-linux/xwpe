@@ -88,7 +88,7 @@ X Window altýnda çalýþan tümleþik geliþtirme ortamý yazýlýmlarý.
 %patch1 -p1
 
 %build
-autoconf
+%{__autoconf}
 CFLAGS="-I/usr/include/ncurses %{rpmcflags}"
 %configure
 %{__make}
