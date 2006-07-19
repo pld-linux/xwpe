@@ -8,12 +8,12 @@ Summary(ru):	Среда разработки под X Window
 Summary(tr):	X Window program geliЧtirme ortamЩ
 Summary(uk):	Середовище розробки п╕д X Window
 Name:		xwpe
-Version:	1.5.29a
-Release:	6
+Version:	1.5.30a
+Release:	1
 License:	GPL
 Group:		Development/Tools
 Source0:	http://www.identicalsoftware.com/xwpe/%{name}-%{version}.tar.gz
-# Source0-md5:	fa529db0a3f1cc5ac35ff0cc7bb3f588
+# Source0-md5:	11ad41d636f9ff07820ee0869a177a5c
 Source1:	%{name}.desktop
 Source2:	%{name}.png
 Patch0:		%{name}-DESTDIR.patch
