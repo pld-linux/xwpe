@@ -1,12 +1,12 @@
 Summary:	X Window Programming Environment
-Summary(de.UTF-8):   X-Window-Programmierumgebung
-Summary(es.UTF-8):   Ambiente de programación X Window
-Summary(fr.UTF-8):   Environnement de programmation X Window
-Summary(pl.UTF-8):   Środowisko programistyczne pod X Window
-Summary(pt_BR.UTF-8):   Ambiente de programação X Window
-Summary(ru.UTF-8):   Среда разработки под X Window
-Summary(tr.UTF-8):   X Window program geliştirme ortamı
-Summary(uk.UTF-8):   Середовище розробки під X Window
+Summary(de.UTF-8):	X-Window-Programmierumgebung
+Summary(es.UTF-8):	Ambiente de programación X Window
+Summary(fr.UTF-8):	Environnement de programmation X Window
+Summary(pl.UTF-8):	Środowisko programistyczne pod X Window
+Summary(pt_BR.UTF-8):	Ambiente de programação X Window
+Summary(ru.UTF-8):	Среда разработки под X Window
+Summary(tr.UTF-8):	X Window program geliştirme ortamı
+Summary(uk.UTF-8):	Середовище розробки під X Window
 Name:		xwpe
 Version:	1.5.30a
 Release:	1
@@ -107,9 +107,9 @@ XWPE - це пакет з чотирьох програм: we, wpe, xwe та xwp
 
 %package X11
 Summary:	X Window Programming Environment - X11 programs
-Summary(es.UTF-8):   Ambiente de Programación X Window - Programas X11
-Summary(pl.UTF-8):   XWPE - programy pod X11
-Summary(pt_BR.UTF-8):   Ambiente de Programação X Window - Programas X11
+Summary(es.UTF-8):	Ambiente de Programación X Window - Programas X11
+Summary(pl.UTF-8):	XWPE - programy pod X11
+Summary(pt_BR.UTF-8):	Ambiente de Programação X Window - Programas X11
 Group:		X11/Applications
 Requires:	%{name} = %{version}-%{release}
 
