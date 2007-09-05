@@ -9,7 +9,7 @@ Summary(tr.UTF-8):	X Window program geliştirme ortamı
 Summary(uk.UTF-8):	Середовище розробки під X Window
 Name:		xwpe
 Version:	1.5.30a
-Release:	2
+Release:	3
 License:	GPL
 Group:		Development/Tools
 Source0:	http://www.identicalsoftware.com/xwpe/%{name}-%{version}.tar.gz
@@ -18,11 +18,13 @@ Source1:	%{name}.desktop
 Source2:	%{name}.png
 Patch0:		%{name}-DESTDIR.patch
 Patch1:		%{name}-dynamic.patch
+Patch2:		%{name}-tinfo.patch
 URL:		http://www.identicalsoftware.com/xwpe/
-BuildRequires:	XFree86-devel
 BuildRequires:	autoconf
 BuildRequires:	gpm-devel
 BuildRequires:	ncurses-devel >= 5.1
+BuildRequires:	xorg-lib-libX11-devel
+BuildRequires:	xorg-proto-xproto-devel
 BuildRequires:	zlib-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -140,11 +142,16 @@ X Window altında çalışan tümleşik geliştirme ortamı yazılımları.
 %setup -q
 %patch0 -p1
 %patch1 -p1
+%patch2 -p1
 
 %build
 %{__autoconf}
 CFLAGS="-I/usr/include/ncurses %{rpmcflags}"
-%configure
+export CFLAGS
+
+%configure \
+	--with-x
+
 %{__make} xwpe libxwpe-x11.so libxwpe-term.so
 
 %install
