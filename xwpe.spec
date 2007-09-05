@@ -9,7 +9,7 @@ Summary(tr.UTF-8):	X Window program geliştirme ortamı
 Summary(uk.UTF-8):	Середовище розробки під X Window
 Name:		xwpe
 Version:	1.5.30a
-Release:	1
+Release:	2
 License:	GPL
 Group:		Development/Tools
 Source0:	http://www.identicalsoftware.com/xwpe/%{name}-%{version}.tar.gz
