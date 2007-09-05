@@ -1,0 +1,11 @@
+--- xwpe-1.5.30a/configure.in~	2005-07-07 03:53:09.000000000 +0200
++++ xwpe-1.5.30a/configure.in	2007-09-05 17:25:44.000000000 +0200
+@@ -14,7 +14,7 @@
+ AC_CHECK_LIB(ncurses, main,
+  LIBS="${LIBS} -lncurses"
+  CURSES="yes"
+- AC_CHECK_LIB(mytinfo, main, LIBS="${LIBS} -lmytinfo"),
++ AC_CHECK_LIB(tinfo, main, LIBS="${LIBS} -ltinfo"),
+  AC_CHECK_LIB(curses, main,
+   LIBS="${LIBS} -lcurses"
+   CURSES="yes",
